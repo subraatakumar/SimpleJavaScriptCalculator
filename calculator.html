@@ -1,0 +1,59 @@
+<!doctype HTML>
+<html>
+<head>
+</head>
+<body>
+<input type="number" id="no1"/>
+<input type="number" id="no2"/>
+<p id="result"></p>
+<button onClick="add()">+</button>
+<button onClick="sub()">-</button>
+<button onClick="mul()">x</button>
+<button onClick="div()">/</button>
+
+<script>
+function add(){
+	var x = document.getElementById("no1").value;
+	var y = document.getElementById("no2").value;
+	
+	x = parseInt(x);
+	y = parseInt(y);
+	
+	document.getElementById("result").innerHTML = "Result of addition is : "+(x+y);
+	// alert(x+y);
+}
+function sub(){
+	var x = document.getElementById("no1").value;
+	var y = document.getElementById("no2").value;
+	
+	x = parseInt(x);
+	y = parseInt(y);
+	
+	document.getElementById("result").innerHTML = "Result of Subtraction is : "+(x-y);
+	// alert(x+y);
+}
+function mul(){
+	var x = document.getElementById("no1").value;
+	var y = document.getElementById("no2").value;
+	
+	x = parseInt(x);
+	y = parseInt(y);
+	
+	document.getElementById("result").innerHTML = "Result of Multiplication is : "+(x*y);
+	// alert(x+y);
+}
+function div(){
+	var x = document.getElementById("no1").value;
+	var y = document.getElementById("no2").value;
+	
+	x = parseInt(x);
+	y = parseInt(y);
+	
+	document.getElementById("result").innerHTML = "Result of Division is : "+(x/y);
+	// alert(x+y);
+}
+
+</script>
+</body>
+</html>
+
