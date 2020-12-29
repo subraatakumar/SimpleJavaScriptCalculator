@@ -1,0 +1,103 @@
+<center>
+<table>
+<tr><td colspan="4" align="center">Subrat Sir's Calculator</td></tr>
+<tr><td colspan="4" id="input2" align="right"></td></tr>
+<tr><td colspan="4" id="input1" align="right"></td></tr>
+<tr><td class="numbers" align="center">7</td><td class="numbers" align="center">8</td><td class="numbers" align="center">9</td><td class="operators" align="center">/</td></tr>
+<tr><td class="numbers" align="center">4</td><td class="numbers" align="center">5</td><td class="numbers" align="center">6</td><td class="operators" align="center">x</td></tr>
+<tr><td class="numbers" align="center">1</td><td class="numbers" align="center">2</td><td class="numbers" align="center">3</td><td class="operators" align="center">-</td></tr>
+<tr><td class="numbers" align="center">0</td><td id="cancel" align="center">C</td><td id="equal" align="center">=</td><td class="operators" align="center">+</td></tr>
+</table>
+</center>
+<style>
+	body{
+		background-color:#635a3f;
+	}
+	table{
+		background-color:#80a4c4;
+		font-size: 50px;
+	}
+	#input2{
+		font-size: 30px;
+		color:#36393b;
+	}
+	#input1{
+		font-family:stencil;
+		background-color:FFFFFF;
+	}
+	#input1{
+		border:10px inset #447cad;
+	}
+	tr{
+		margin:10px;
+	}
+	td{
+		height:120px;
+		padding:20px;
+		border:10px outset #447cad;
+	}
+
+</style>
+<script>
+var input1 = document.getElementById("input1");
+var input2 = document.getElementById("input2");
+var numbers = document.getElementsByClassName("numbers");
+var operators = document.getElementsByClassName("operators");
+var cancel = document.getElementById("cancel");
+var equal = document.getElementById("equal");
+var result, operator;
+
+var myFunction = function() {
+    var data = this.innerHTML;
+	input1.innerHTML = input1.innerHTML+data;
+};
+var myFunction1 = function() {
+    var data = this.innerHTML;
+	if(input2.innerHTML == ""){
+		result = parseInt(input1.innerHTML);
+		operator = data;
+	}else if(operator == "+"){
+		result = result + parseInt(input1.innerHTML);
+		//alert(result);
+		operator = data;
+	}else if(operator == "-"){
+		result = result - parseInt(input1.innerHTML);
+		//alert(result);
+		operator = data;
+	}else if(operator == "x"){
+		result = result * parseInt(input1.innerHTML);
+		//alert(result);
+		operator = data;
+	}else if(operator == "/"){
+		result = result / parseInt(input1.innerHTML);
+		//alert(result);
+		operator = data;
+	}
+	input2.innerHTML = input2.innerHTML+" "+input1.innerHTML+" "+data;
+	input1.innerHTML = "";
+};
+
+for (var i = 0; i < numbers.length; i++) {
+    numbers[i].addEventListener('click', myFunction, false);
+}	
+for (var i = 0; i < operators.length; i++) {
+    operators[i].addEventListener('click', myFunction1, false);
+}	
+cancel.addEventListener('click',function(){ input1.innerHTML = ""; result=""; operator=""; }, false);
+equal.addEventListener('click',function(){
+	if(input1.innerHTML == ""){
+	}else if(operator == "+"){
+		result = result + parseInt(input1.innerHTML);
+	}else if(operator == "-"){
+		result = result - parseInt(input1.innerHTML);
+	}else if(operator == "x"){
+		result = result * parseInt(input1.innerHTML);
+	}else if(operator == "/"){
+		result = result / parseInt(input1.innerHTML);
+	}else{
+		result = input1.innerHTML;
+	}
+		input1.innerHTML = result;
+		input2.innerHTML = "";
+},false);
+</script>
